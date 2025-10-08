@@ -9,7 +9,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // 3. URL del archivo GeoJSON - ¡MODIFICADA A RAW!
 // Esta URL es la correcta para acceder al contenido puro del archivo
-const geojsonUrl = 'https://raw.githubusercontent.com/cartosantacruz/zas/refs/heads/main/data/obras.geojson';
+const geojsonUrl = 'https://raw.githubusercontent.com/cartosantacruz/zas/main/data/obras.geojson';
 
 // 4. Función para cargar y agregar los datos GeoJSON
 async function cargarDatosGeoJSON() {
@@ -49,4 +49,3 @@ async function cargarDatosGeoJSON() {
 
 // 5. Llama a la función para iniciar la carga
 cargarDatosGeoJSON();
-
