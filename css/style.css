@@ -1,0 +1,343 @@
+/* Variables CSS para facilitar la personalización de colores */
+:root {
+    --primary-color: #007bff; /* Azul (para elementos principales y enlaces) */
+    --secondary-color: #6c757d; /* Gris para texto secundario */
+    --light-color: #f8f9fa; /* Color claro (texto en barra lateral) */
+    --dark-color: #212529; /* Color oscuro (fondo de barra lateral) */
+    --kpi-title-color: #6C757D; /* Gris específico para los títulos de los KPIs */
+    --background-color: #e9ecef; /* Color de fondo general */
+    --card-bg: #ffffff; /* Fondo de las tarjetas y contenedores */
+    /* Colores específicos para KPIs */
+    --color-ejecucion: #E8A843; /* Naranja/Dorado para Obras en Ejecución */
+    --color-finalizada: #28a745; /* Verde para Obras Finalizadas */
+    /* Nuevo color para Total de Obras */
+    --color-total-obras: #212529; /* Color de valor Total de Obras (Azul muy oscuro/negro) */
+}
+
+/* Reseteo básico y configuración de la vista */
+body, html { 
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
+    height: 100%; 
+    font-family: Arial, sans-serif; 
+    background-color: var(--background-color); 
+}
+.dashboard-container { 
+    display: flex; 
+    height: 100vh; /* Ocupar toda la altura de la ventana */
+}
+
+/* --- Estilos de la Barra Lateral (Sidebar) --- */
+.sidebar { 
+    width: 300px; 
+    background-color: var(--dark-color); 
+    color: var(--light-color); 
+    padding: 20px; 
+    box-sizing: border-box; 
+    flex-shrink: 0; /* Evita que se encoja */
+    overflow-y: auto; 
+}
+.sidebar-header { 
+    text-align: center; 
+    margin-bottom: 20px; 
+    border-bottom: 1px solid var(--secondary-color); 
+    padding-bottom: 15px; 
+}
+.sidebar-filters { 
+    padding: 10px; 
+    background-color: #343a40; 
+    border-radius: 5px; 
+}
+.sidebar-filters h4 { 
+    margin-top: 0; 
+    text-align: center; 
+}
+.filter-group { 
+    margin-bottom: 15px; 
+}
+.filter-group label { 
+    display: block; 
+    margin-bottom: 5px; 
+    font-size: 14px; 
+}
+/* Estilo de los elementos de filtro (Select e Input) */
+.filter-group select, 
+.filter-group input[type="text"] { 
+    width: 100%; 
+    padding: 8px; 
+    border-radius: 4px; 
+    border: 1px solid var(--secondary-color); 
+    background-color: #495057; 
+    color: var(--light-color); 
+    box-sizing: border-box; 
+}
+/* Estilo específico para el placeholder del input */
+.filter-group input::placeholder {
+    color: #ced4da70; 
+}
+
+
+/* --- Estilos del Contenido Principal (Main Content) --- */
+.main-content { 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    padding: 15px; 
+    gap: 15px; /* Espacio entre las filas de contenido */
+    overflow-y: auto; 
+}
+.main-header { 
+    background-color: var(--card-bg); 
+    padding: 15px; 
+    border-radius: 8px; 
+    text-align: center; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    flex-shrink: 0; 
+}
+
+/* Estilo base para todas las tarjetas/contenedores de información */
+.text-card, 
+.chart-container, 
+.map-container, 
+.kpi-card, 
+.table-container { 
+    background-color: var(--card-bg); 
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+.text-card { 
+    flex-shrink: 0; 
+}
+.text-card h4, 
+.text-card p, 
+.map-container h4, 
+.chart-container h4, 
+.table-container h4 { 
+    margin-top: 0; 
+    text-align: center; 
+}
+.text-card p { 
+    margin-bottom: 0; 
+}
+
+/* --- Estilos para KPIs (Desktop/Tablet Grande) --- */
+.kpi-row { 
+    display: flex; 
+    gap: 15px; 
+    flex-shrink: 0; 
+}
+.kpi-card { 
+    width: 100%; 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    /* CORRECCIÓN: Alinea el contenido verticalmente a la parte superior */
+    justify-content: flex-start; 
+    align-items: center; 
+    padding: 20px 15px; 
+    box-sizing: border-box; 
+}
+
+/* Estilos de los elementos individuales del KPI */
+.kpi-title {
+    margin: 0 0 10px 0; 
+    color: var(--kpi-title-color); 
+    font-size: 0.8em; 
+    font-weight: bold; 
+    letter-spacing: 0.5px; 
+    text-transform: uppercase; 
+    line-height: 1.2; 
+    width: 100%; /* Asegura que el título ocupe todo el ancho */
+}
+
+.kpi-value {
+    margin: 0; 
+    font-size: 3.0em; /* Tamaño más grande para los números principales, acorde a la imagen */
+    font-weight: 800; 
+    line-height: 1; 
+}
+
+.kpi-unit-text {
+    margin-top: 8px; 
+    font-size: 0.8em; 
+    color: var(--kpi-title-color); 
+    display: block; 
+    line-height: 1.2;
+}
+
+
+/* --- ESTILOS ESPECÍFICOS DE KPI (Colores personalizados) --- */
+
+/* Color del título (Gris oscuro) */
+.kpi-color-primary {
+    color: var(--kpi-title-color) !important; 
+}
+
+/* Color para el valor del KPI "TOTAL DE OBRAS" (Azul muy oscuro/negro) */
+.kpi-color-total-obras {
+    color: var(--color-total-obras) !important; 
+}
+
+/* Color para el valor del KPI "INVERSIÓN TOTAL" (Azul del visor) */
+.kpi-color-invest {
+    color: var(--primary-color) !important; 
+}
+
+.kpi-color-ejecucion {
+    color: var(--color-ejecucion) !important; 
+}
+
+.kpi-color-finalizada {
+    color: var(--color-finalizada) !important; 
+}
+
+/* Clase para manejar el texto de la unidad y el asterisco de forma consistente */
+.kpi-unit-asterisk {
+    font-size: 0.7em; /* Un poco más pequeño que el título y el valor */
+    margin-top: 2px;
+}
+/* --- FIN ESTILOS ESPECÍFICOS DE KPI --- */
+
+
+/* --- Contenedores de Gráficos (Desktop/Tablet Grande) --- */
+.charts-row { 
+    display: flex; 
+    gap: 15px; 
+    flex-shrink: 0; 
+}
+.chart-container { 
+    width: 50%; 
+    height: 220px; 
+}
+
+/* --- Contenedor del Mapa --- */
+.map-container {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    min-height: 450px; 
+    margin: 0 20px; 
+}
+#mapid { 
+    width: 100%; 
+    height: 100%; 
+    border-radius: 5px; 
+}
+
+/* --- Estilos para la Tabla de Datos --- */
+.table-container { 
+    flex-shrink: 0; 
+}
+.table-wrapper { 
+    max-height: 300px; 
+    overflow-y: auto; 
+}
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+}
+th, td { 
+    padding: 8px 12px; 
+    border: 1px solid #ddd; 
+    text-align: left; 
+    font-size: 14px; 
+}
+thead th { 
+    background-color: #f2f2f2; 
+    position: sticky; 
+    top: 0; 
+}
+tbody tr:nth-child(even) { 
+    background-color: #f9f9f9; 
+}
+tbody tr:hover { 
+    background-color: #f1f1f1; 
+}
+
+/* --- Estilos para Botón de Limpiar Filtros --- */
+#btn-limpiar-filtros {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px; 
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color); 
+    color: var(--light-color);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#btn-limpiar-filtros:hover {
+    background-color: #0056b3; 
+}
+
+
+/* ************************************************* */
+/* --- MEDIA QUERIES PARA RESPONSIVE DESIGN (Móvil)--- */
+/* ************************************************* */
+@media (max-width: 768px) {
+    
+    /* 1. LAYOUT PRINCIPAL: Apilar la barra lateral y el contenido */
+    .dashboard-container {
+        flex-direction: column;
+        height: auto; 
+    }
+
+    /* 2. BARRA LATERAL: Ocupar todo el ancho y eliminar la altura fija */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-shrink: unset; 
+    }
+    .sidebar-header {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    
+    /* 3. CONTENIDO PRINCIPAL: Ajustar padding del main */
+    .main-content {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    /* 4. KPI ROW: Envolver y hacer que los KPIs se apilen 2x2 */
+    .kpi-row {
+        flex-wrap: wrap; 
+        gap: 10px; 
+    }
+
+    .kpi-card {
+        width: calc(50% - 5px); 
+        padding: 15px 10px; 
+        box-sizing: border-box; 
+        justify-content: flex-start; /* Asegura la alineación en la parte superior */
+    }
+    
+    .kpi-value {
+        font-size: 2.2em; /* Ligeramente más pequeño en móvil */
+    }
+
+    /* 5. CHARTS ROW: Apilar los gráficos 1x1 */
+    .charts-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .chart-container {
+        width: 100%; 
+        height: 250px; 
+    }
+    
+    /* 6. MAPA: Ajustar márgenes */
+    .map-container {
+        margin: 0; 
+        min-height: 300px; 
+    }
+    
+    /* 7. TABLA: Asegurar que el tamaño de fuente se mantenga legible */
+    th, td {
+        font-size: 12px;
+    }
+}
