@@ -1,3 +1,22 @@
+// Ejemplo usando la API Fetch
+const geojsonUrl = 'https://raw.githubusercontent.com/cartosantacruz/zas/main/data/obras.geojson';
+
+fetch(geojsonUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parsea el GeoJSON
+    })
+    .then(data => {
+        console.log('Datos cargados exitosamente:', data);
+        // Aquí agregas el código para agregar 'data' a tu mapa (ej: L.geoJSON(data).addTo(map))
+    })
+    .catch(error => {
+        console.error('Hubo un problema con la operación fetch:', error);
+    });
+
+
 // **********************************************
 // **** MAIN.JS CON LÓGICA DE MAPA, FILTROS Y KPI ****
 // **********************************************
@@ -341,4 +360,5 @@ function actualizarGraficos(geojsonFiltrado) {
         },
         options: commonOptions
     });
+
 }
